@@ -1,0 +1,16 @@
+pip install opencv-python     --- opencv
+
+conda install -c conda-forge spacy   
+
+conda install -c conda-forge spacy-lookups-data
+
+python -m spacy download en_core_web_sm
+
+C:\Program Files\poppler-0.68.0\bin
+
+pip install torch-scatter==latest+cpu -f https://pytorch-geometric.com/whl/torch-1.4.0.html
+pip install torch-sparse==latest+cpu -f https://pytorch-geometric.com/whl/torch-1.4.0.html
+pip install torch-cluster==latest+cpu -f https://pytorch-geometric.com/whl/torch-1.4.0.html
+pip install torch-spline-conv==latest+cpu -f https://pytorch-geometric.com/whl/torch-1.4.0.html
+python setup.py install or pip install torch-geometric
+

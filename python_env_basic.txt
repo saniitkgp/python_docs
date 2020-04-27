@@ -1,0 +1,15 @@
+1. To create an environment:
+
+	conda create --name myenv
+	conda create --name myenv python=3.7 (this for version)
+2. activat environment
+	conda activat myenv
+
+3. to see list of installed evns
+	conda info --envs
+	conda env list
+	conda lnfo -e
+	
+	
+	
+https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
