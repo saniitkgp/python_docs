@@ -30,7 +30,7 @@ Insert Into Dept (dept_id,dept_name) Values (1,'xyz');
 Insert Into Dept (dept_id,dept_name) Values (2,'abc'),(3,'uvw');
 
 insert into Emp(emp_id, sallary,dept_id, emp_name) Values (101,100,1,'sanjeev');
-insert into Emp(emp_id,emp_name, sallary,dept_id) Values (102,'kumar',300,2),(103,'niraj', 300,3),(104,'deepak', 300,3),(105,'suraj' 300,4); 
+insert into Emp(emp_id,emp_name, sallary,dept_id) Values (102,'kumar',300,2),(103,'niraj', 300,4),(104,'deepak', 300,3),(105,'suraj' 300,3); 
 
 Update Emp set emp_name = 'sanjeev' where emp_id = 101;  -- if condition is not applied Then it will update all columns;
 
