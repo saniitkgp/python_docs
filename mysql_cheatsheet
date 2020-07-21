@@ -39,10 +39,10 @@ Update Emp set emp_name = 'sanjeev' where emp_id = 101;  -- if condition is not 
 
 
 Insert Into Dept (dept_id,dept_name) Values (1,'xyz');
-Insert Into Dept (dept_id,dept_name) Values (2,'abc'),(3,'uvw');
+Insert Into Dept (dept_id,dept_name) Values (3,'abc'),(2,'uvw');
 
 insert into Emp(emp_id, sallary,dept_id, emp_name) Values (101,100,1,'sanjeev');
-insert into Emp(emp_id,emp_name, sallary,dept_id) Values (102,'kumar',300,2),(103,'niraj', 600,3),(104,'deepak', 900,5),(105,'suraj', 400,4); 
+insert into Emp(emp_id,emp_name, sallary,dept_id) Values (102,'kumar',300,2),(103,'niraj', 600,3),(104,'deepak', 900,3),(105,'suraj', 400,4); 
 
 -- truncate table emp;
 select * from dept;
@@ -95,4 +95,13 @@ delete from Emp where emp_id =101;
 alter table Emp modify emp_id int not null;
 
 
+
+
+#-----------------------------------------
+drop table dept;
+Create Table Dept (
+dept_id int not null,
+dept_name varchar(255));
+
+Insert Into Dept (dept_id,dept_name) Values (1,'xyz'),(3,'abc'),(2,'uvw');
 
