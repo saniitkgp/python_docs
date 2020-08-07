@@ -1,0 +1,613 @@
+
+#---------------------------map function --------------------------
+lambda  -> kind of inline function 
+		fun = lambda x: x*2;
+		print(fun(2) -> 4
+
+map =  map(function, iterable) -> applying function on each element of the iterable and return list object. 
+		ex-  result = map(lambda x : x*2, [1,2,3,4,5])
+			print(list(result)) -> [2,4,6,8,10]
+			
+			
+filte = filter(function, iterable) -> applying function on each element of the iterable and only return ture value as list of object. 
+		 ex- 
+		    result = filter(lambda x : x%2==0,  [1,2,3,4,5])
+			print(list(result)-> [2,4]
+reduce -> from functools import reduce  -> import  
+			reduce(function,iterable)   ->  applying function on each element and return single result.
+										-> at first step two value of iterable are picked and does operation then after single value from iterable
+										-> return list or single value
+		example:-  result= reduce(lambda x ,y: x+y, [1,2,3,4,5])
+					print(result) -> 15
+
+apply -> this function  used to apply some function on each value of pandas series
+
+		ex -> df.apply(lambda x: x*2)
+		       df[column].apply(fun) --> for all column value
+			   
+#------------------------variable number or arguments ----------------------------
+* -> * is know as unpacking operator 
+ex - below function adder 
+		calling->  adder(*[1,2,3])-> 7
+python has two variable no of arguments
+1. *args ->  non-keyword argumnets  
+				ex - adder(*args)  -> instead of *args we can use any name ex- *params/ *values etc
+					def adder(*val):
+					res=0
+					for value in val:
+						res += value 
+					return res;
+					
+					calling -> adder(1,2,3); -> 7
+							   adder(1,2,3,4) -> 10
+2. **kwargs ->  keyword arguments where we pass value as name and value combination
+				it is passed as dict whare name as key and value as values	
+				ex - 
+				def intro(**data):
+					print("\nData type of argument:",type(data))
+
+					for key, value in data.items():
+						print("{} is {}".format(key,value))
+				calling -> intro(first_name = 'sanjee', last_name=kumar, age=25) 
+						o/p -> Data type of argument:<class 'dict'>
+							   first_name is sanjeev
+							   last_name is kumar
+							   age is 25
+				calling -> intro(Firstname="John", Lastname="Wood", Email="johnwood@nomail.com", Country="Wakanda", Age=25, Phone=9876543210)
+						o/p->   Data type of argument: <class 'dict'>
+								Firstname is John
+								Lastname is Wood
+								Email is johnwood@nomail.com
+								Country is Wakanda
+								Age is 25
+								Phone is 9876543210
+								
+#---------------------------list --------------------------------------------
+list is mutable where tuble is immutatble i't -> can't be modify
+
+1. append(x)-> Adds an x at the end of the list
+lst = [1,2,3,4,5]
+print(lst)
+lst.append(2)
+print(lst)
+o/p->  [1, 2, 3, 4, 5]
+		[1, 2, 3, 4, 5, 2]
+
+2. list.clear() -> clear the list / ded list[1]  will delete 2nd element of the list. 
+3. count(x)-> will return no of times x present in list 
+		ex-> lst =[1,2,2,2,3,4]
+			 lst.count(2)
+			 o/p->  3
+4. index(x)-> will return first occurance of the x 
+			ex-> lst =[1,2,2,2,3,4]
+				 lst.index(2)
+			 o/p->  1
+5. extend(iterable) -> will add all element of iterable at the end of the list 
+			ex-> fruits = ['apple', 'banana', 'cherry']
+				 cars = (1, 4, 5, 9)
+				 fruits.extend(cars)
+			o/p->  ['apple', 'banana', 'cherry', 1, 4, 5, 9]
+6. list.insert(pos, elmnt) -> this method inserts the elemnt value at the specified position.
+7. list.sort() --> sort the element 
+  # list.sort(reverse=True|False, key=myFunc) ->default is false. 
+					ex -def myFunc(e):
+						  return len(e)
+						  
+						cars = ['Ford', 'Mitsubishi', 'BMW', 'VW']
+						cars.sort(key=myFunc)
+						print(cars)
+					o/p-> ['VW', 'BMW', 'Ford', 'Mitsubishi']
+	# list.sort(key =lambda sort_on_top : sort_on_top[1]) # sorting list of list on specified value
+				ex- lst=[['ram',2,[2,1]],['shyam',1,[3,2]],['manoj',0,[5,2]],['sanjeev',3,[1,2]]]
+					lst.sort(key =lambda sort_on_top : sort_on_top[1])
+					print(lst)
+				o/p-> [['manoj', 0, [5, 2]], ['shyam', 1, [3, 2]], ['ram', 2, [2, 1]], ['sanjeev', 3, [1, 2]]]
+	
+8. list.reverse()
+9. list.pop(pos) -> remove list at specified position	
+10.list.remove(element) -> method removes the first occurrence of the element.
+				ex- lst =[1,2,3,4,2]
+					lst.remove(2)
+					o/p->  [1,3,4,2]
+11.
+​
+#-----------------------------------------dictinory--------------------------
+1. creating dict
+dic =dict() /  {} -> creating empty dict
+dic[key] -> If we use the square brackets [], KeyError is raised in case a key is not found in the dictionary. 
+dic.get(key) -> On the other hand, the get() method returns None if the key is not found.
+
+2. update/add value to dict
+dic[key_present]=27 ->  If the key is already present, then the existing value gets updated. 
+dic[key_not_present]=27 -> In case the key is not present, a new (key: value) pair is added to the dictionary.
+
+3. Removing elements from Dictionary
+squares = {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+dict.pop(key) -> This method removes an item with the provided key and returns the value. if key is not present it will raise keyerror.
+				ex- squares = {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}  
+					print(squares.pop(4))
+					print(squares)
+				o/p -> 16
+						{1: 1, 2: 4, 3: 9, 5: 25}
+
+dict.popitem()-> 	The popitem() method can be used to remove and return an last (key, value) item pair from the dictionary.
+					ex- squares = {1: 1, 2: 4, 3: 9,5: 25}  
+						print(squares.popitem())
+						print(squares)
+					o/p-> (5, 25)
+						  {1: 1, 2: 4, 3: 9}
+						  
+dict.clear()  ->   clear all element of the dict.
+
+del dict -> delete the dictionary itself. 
+ 
+4. dict.items() -> Returns a list of key-value pairs in a dictionary.
+					ex->  d = {'a': 10, 'b': 20, 'c': 30}
+						  print(d.items()) --> returen dict object
+						  print(list(d.item())) -> list of key value paire
+					o/p -> dict_items([('a', 10), ('b', 20), ('c', 30)])
+						   [('a', 10), ('b', 20), ('c', 30)]
+						   
+	dict.keys() -> Returns a list of all keys in a dictionary.
+				ex -> d = {'a': 10, 'b': 20, 'c': 30}
+						pirnt(d.keys()) -> dict object
+						print(list(d.keys())) -> list of keys
+				o/p->   dict_keys(['a', 'b', 'c'])
+						['a', 'b', 'c']
+						
+	dict.values() -> Returns a list of all keys in a dictionary.
+				ex -> d = {'a': 10, 'b': 20, 'c': 30}
+						pirnt(d.values()) -> dict object
+						print(list(d.values())) -> list of values
+				o/p->   dict_values([10, 20, 30])
+						['a', 'b', 'c']
+						
+	dict.update(dict) ->  If the key is not present in d, the key-value pair from <obj> is added to d.
+						  If the key is already present in d, the corresponding value in d for that key is updated to the value from <obj>.
+					ex -> d1 = {'a': 10, 'b': 20, 'c': 30}
+						d2 = {'b': 200, 'd': 400}
+						print(d1)
+						d1.update(d2)   	->  value of b is optial -> d1.update([('b', 200), ('d', 400)])/ d1.update(b=200, d=400)
+				
+						print(d1
+					o/p->  {'a': 10, 'b': 20, 'c': 30}
+						   {'a': 10, 'b': 200, 'c': 30, 'd': 400}
+						   
+	dict.fromkeys(sequence[, value])  -> The fromkeys() method takes two parameters:
+							sequence - sequence of elements which is to be used as keys for the new dictionary
+							value (Optional) - value which is set to each each element of the dictionary
+						Return :- method returns a new dictionary with the given sequence of elements as the keys of the dictionary.
+
+						ex->
+							keys = {'a', 'e', 'i', 'o', 'u' }
+							value = 'vowel'
+							vowels = dict.fromkeys(keys, value)  / dict.fromkeys(keys)
+							print(vowels)		   
+													   
+						 o/p:- {'a': 'vowel', 'u': 'vowel', 'o': 'vowel', 'e': 'vowel', 'i': 'vowel'} / {'a': None, 'u': None, 'o': None, 'e': None, 'i': None}
+						
+						
+						If the provided value is a mutable object (whose value can be modified) like list, dictionary, etc., 
+						when the mutable object is modified, each element of the sequence also gets updated.
+						This is because, each element is assigned a reference to the same object (points to the same object in the memory).
+					 ex-> 
+						keys = {'a', 'e', 'i', 'o', 'u' }
+						value = [1]
+						vowels = dict.fromkeys(keys, value)
+						print(vowels)
+						# updating the value
+						value.append(2)
+						print(vowels)
+					o/p:-> {'a': [1], 'u': [1], 'o': [1], 'e': [1], 'i': [1]}
+							{'a': [1, 2], 'u': [1, 2], 'o': [1, 2], 'e': [1, 2], 'i': [1, 2]}
+							
+					To avoid this issue, we use dictionary comprehension.
+					ex-> 
+						keys = {'a', 'e', 'i', 'o', 'u' }
+						value = [1]
+
+						vowels = { key : list(value) for key in keys }
+						# you can also use { key : value[:] for key in keys }
+						print(vowels)
+
+						# updating the value
+						value.append(2)
+						print(vowels)
+					o/p:->  {'a': [1], 'u': [1], 'o': [1], 'e': [1], 'i': [1]}
+							{'a': [1], 'u': [1], 'o': [1], 'e': [1], 'i': [1]}
+							
+							
+	dict.setdefault(key[, default_value]):- 
+						The setdefault() takes maximum of two parameters:
+
+						key - key to be searched in the dictionary
+						default_value (optional) - key with a value default_value is inserted to the dictionary if key is not in the dictionary.
+						If not provided, the default_value will be None.
+						
+						returns:- value of the key if it is in the dictionary
+								  None if key is not in the dictionary and default_value is not specified
+								  default_value if key is not in the dictionary and default_value is specified
+						ex -> 
+							Example 1: How setdefault() works when key is in the dictionary?
+							person = {'name': 'Phill', 'age': 22}
+							age = person.setdefault('age')
+							print('person = ',person)
+							print('Age = ',age)
+						o/p:-> person =  {'name': 'Phill', 'age': 22}
+								Age =  22
+						Example 2: How setdefault() works when key is not in the dictionary?
+									person = {'name': 'Phill'}
+
+									# key is not in the dictionary
+									salary = person.setdefault('salary')
+									print('person = ',person)
+									print('salary = ',salary)
+
+									# key is not in the dictionary
+									# default_value is provided
+									age = person.setdefault('age', 22)
+									print('person = ',person)
+									print('age = ',age)
+									
+									
+						o/p:-> person =  {'name': 'Phill', 'salary': None}
+								salary =  None
+								person =  {'name': 'Phill', 'age': 22, 'salary': None}
+								age =  22
+#-------------------------------------------------------string-----------------------------------------------------------------
+string in python is as list of character. 
+1. Access by list position. 
+		  
+	a = "Hello, World!"
+	print(a[1])
+o/p: ->  e
+2. Slicing
+Example
+	Get the characters from position 2 to position 5 (not included):
+
+	b = "Hello, World!"
+	print(b[2:5])
+	print(b[-5:-2])
+
+o/p:-> llo
+	   orl
+		
+2. len() :- len(str)-> len of the string ex :- len('hello'):-> 5
+3. strip() :->  method removes any whitespace from the beginning or the end:
+	ex ->
+			a = " Hello, World! "
+			print(a.strip()) 
+	o/p:-> "Hello, World!"
+4. str.lower() :->  method returns the string in lower case ex:- 'HEllo'.lower() :-> o/p:- hello
+5. str.upper():->   method returns the string in upper case
+6. str.split('separator') :- >  method splits the string into substrings if it finds instances of the separator 
+								default separator is space
+								ex:-a = "Hello, World!"
+									print(a.split(",")) 
+									
+							   o/p:-> ['Hello', ' World!']
+	str.partition(substr):-> braks into three part form first occurance of the substr 
+							 if substr if not found then last two value of list is empty 
+					EX :-> txt = "I could eat bananas all day"  |	txt = "I could eat bananas all day"
+							x = txt.partition("bananas")		|	x = txt.partition("banadas")
+							print(x)							|	print(x)
+
+							o/p:-> ('I could eat ', 'bananas', ' all day')	|	('I could eat bananas all day', '', '')
+
+							7. str.replace(str_to_replace, str_to_replace_by) :-> The replace() method replaces a string with another string:
+					Example
+						a = "Hello, World!"
+						print(a.replace("H", "J"))
+				   o/p:-> Jello, World!
+8 check string :- > it used to check substing present in string or not
+					it return true or flase
+				ex:-> txt = "The rain in Spain stays mainly in the plain"
+							x = "ain" in txt
+							print(x) 
+				o/p:->   True. 
+9. str.find(substr):->     	Searches the string for a substr value and returns the position of where it was found
+
+capitalize():->    Converts the first character to upper case
+casefold():->     	Converts string into lower case
+center():->     	Returns a centered string
+count():->     	Returns the number of times a specified value occurs in a string
+encode():->     	Returns an encoded version of the string
+endswith():->     	Returns true if the string ends with the specified value
+expandtabs():->     	Sets the tab size of the string
+format():->     	Formats specified values in a string
+format_map():->     	Formats specified values in a string
+index():->     	Searches the string for a specified value and returns the position of where it was found
+isalnum():->     	Returns True if all characters in the string are alphanumeric
+isalpha():->     	Returns True if all characters in the string are in the alphabet
+isdecimal():->     	Returns True if all characters in the string are decimals
+isdigit():->     	Returns True if all characters in the string are digits
+isidentifier():->     	Returns True if the string is an identifier
+islower():->     	Returns True if all characters in the string are lower case
+isnumeric():->     	Returns True if all characters in the string are numeric
+isprintable():->     	Returns True if all characters in the string are printable
+isspace():->     	Returns True if all characters in the string are whitespaces
+istitle():->     	Returns True if the string follows the rules of a title
+isupper():->     	Returns True if all characters in the string are upper case
+join():->     	Joins the elements of an iterable to the end of the string
+ljust():->     	Returns a left justified version of the string
+lower():->     	Converts a string into lower case
+lstrip():->     	Returns a left trim version of the string
+maketrans():->     	Returns a translation table to be used in translations
+partition():->     	Returns a tuple where the string is parted into three parts
+replace():->     	Returns a string where a specified value is replaced with a specified value
+rfind():->     	Searches the string for a specified value and returns the last position of where it was found
+rindex():->     	Searches the string for a specified value and returns the last position of where it was found
+rjust():->     	Returns a right justified version of the string
+rpartition():->     	Returns a tuple where the string is parted into three parts
+rsplit():->     	Splits the string at the specified separator, and returns a list
+rstrip():->     	Returns a right trim version of the string
+split():->     	Splits the string at the specified separator, and returns a list
+splitlines():->     	Splits the string at line breaks and returns a list
+startswith():->     	Returns true if the string starts with the specified value
+strip():->     			Returns a trimmed version of the string
+swapcase():->     	Swaps cases, lower case becomes upper case and vice versa
+title():->     	Converts the first character of each word to upper case
+translate():->     	Returns a translated string
+upper():->     	Converts a string into upper case
+zfill():->     	Fills the string with a specified number of 0 values at the beginning
+
+#---------------------------------------------------pandas--------------------------------------------------------------------
+	import pandas as pd
+# creating dataframe.
+	
+	1. creating dataframe:-
+			pd.DataFrame(data=None, index= None, columns=None ):-> it will create dataframe.
+			1. if data,index,column is not specified then it will create empty df.
+			2. if data is passed and index and column is not passed then index will (1,2) and column(1,2)
+			    ex:- lst = [['Geek', 25], ['is', 30], ['for', 26], ['Geeksforgeeks', 22]] 
+					 print(pd.DataFrame( lst))
+				o/p:-> 		 0		1
+						0	Geek	25
+						1	is	30
+						2	for	26
+						3	Geeksforgeeks	22
+
+				ex:- print(pd.DataFrame(lst,index =['a','b','c','d'],columns=['name','number']	
+				o/p:-> 
+							name	number
+						a	Geek	25
+						b	is	30
+						c	for	26
+						d	Geeksforgeeks	22
+										
+				
+	2.create with dict
+				ex:-> 
+				titanic_dict = [
+								{'PassengerId': 1, 'Survived': 0, 'Pclass': 3, 
+								 'Name': 'Braund, Mr. Owen Harris', 
+								 'Sex': 'male', 'Age': 22.0}, 
+								{'PassengerId': 2, 'Survived': 1, 'Pclass': 1, 
+								 'Name': 'Cumings, Mrs. John Bradley (Florence Briggs Thayer)', 
+								 'Sex': 'female', 'Age': 38.0}, 
+								{'PassengerId': 3, 'Survived': 1, 'Pclass': 3, 
+								 'Name': 'Heikkinen, Miss. Laina', 
+								 'Sex': 'female', 'Age': 26.0}
+								]
+				
+				# Copy list of dictionaries into a DataFrame
+				df = pd.DataFrame.from_dict(titanic_dict)
+				df
+				o/p:->  
+					PassengerId	Survived	Pclass	Name	Sex	Age
+				0	1	0	3	Braund, Mr. Owen Harris	male	22.0
+				1	2	1	1	Cumings, Mrs. John Bradley (Florence Briggs Th...	female	38.0
+				2	3	1	3	Heikkinen, Miss. Laina	female	26.0
+				
+
+https://medium.com/ub-women-data-scholars/hands-on-python-pandas-dataframe-c8955f257171
+example on dataframe:- https://github.com/leaherb/intro-to-pandas/blob/master/data/titanic_names.csv.zip
+
+	PassengerId	Survived	Pclass	Name	Sex	Age
+0	1	0	3	Braund, Mr. Owen Harris	male	22.0
+1	2	1	1	Cumings, Mrs. John Bradley (Florence Briggs Th...	female	38.0
+2	3	1	3	Heikkinen, Miss. Laina	female	26.0
+3	4	1	1	Futrelle, Mrs. Jacques Heath (Lily May Peel)	female	35.0
+4	5	0	3	Allen, Mr. William Henry	male	35.0
+
+
+# pandas -----------------------------------------
+
+df.shape :- (row and col)
+df.head() :-  how data looks like ex:- what are columns name and its value
+df.describe() :-  statistical analysis of data.
+df.info()     :-  it will give information about datatype of columns
+					ex:-> df.info()
+					o/p:-> 
+					<class 'pandas.core.frame.DataFrame'>
+					RangeIndex: 891 entries, 0 to 890
+					Data columns (total 6 columns):
+					PassengerId    891 non-null int64
+					Survived       891 non-null object
+					Pclass         891 non-null int64
+					Name           891 non-null object
+					Sex            891 non-null object
+					Age            714 non-null float64
+					dtypes: float64(1), int64(2), object(3)
+memory usage: 41.9+ KB
+ #Select specific columns
+
+There are three methods of selecting columns from a DataFrame, and they all return the same results:
+1. dot notation -> df.column_name
+2. square braces with the name of the column as a string.:->  df[‘column_name’]
+3. numeric indexing and the iloc selector :-> df.iloc[:, <column_number>]      
+differance between :- loc and iloc
+1. loc:- gets rows (or columns) with particular labels from the index.  it works when we have string index or integer. then it select all row of that index.
+ex:- supose we have below df of index sex.
+						PassengerId Survived Pclass Name Age
+					Sex
+					male 1 0 3 Braund, Mr. Owen Harris 22.0
+					female 2 1 1 Cumings, Mrs. John Bradley (Florence Briggs Th... 38.0
+					female 3 1 3 Heikkinen, Miss. Laina 26.0
+					female 4 1 1 Futrelle, Mrs. Jacques Heath (Lily May Peel) 35.0
+					male 5 0 3 Allen, Mr. William Henry 35.0
+
+1. we want to select all male row then:- df.loc['male'] :- wil gives all rows of male.
+						PassengerId Survived Pclass Name Age
+					Sex
+					male 1 0 3 Braund, Mr. Owen Harris 22.0
+					male 5 0 3 Allen, Mr. William Henry 35.0
+					
+2. if we gives integers index then it will raise error.
+ex :-  df.loc[1] :->   cannot do label indexing on <class 'pandas.core.indexes.base.Index'> with these indexers [1] of <class'int'>
+
+2. iloc:- gets rows (or columns) at particular positions in the index (so it only takes integers).
+	iloc:- it takes rows sequence and coluumn sequence ex:- suppose we want to select rows 1:10 and colunn (3:5)then
+	df.iloc[1:10, 3:5] -> gives subset of df
+
+3. ix:-  usually tries to behave like loc but falls back to behaving like iloc if a label is not present in the index.
+
+
+4. Select multiple columns:-> df[[list_of_columns]] or df['colums_name']
+5.Select specific columns and rows at the same time :- df[['Name','Age']][5:10]
+6. filter based on condition:- df[df['column' <condition>]
+	ex:- find the data having age > 50
+		df[df['age' > 50] or df[df.age > 50]
+7. counting value in the colums :- df['Survived'].value_counts() :- count the different values in that columns
+								o/p:->  
+										0    549
+										1    342
+										Name: Survived, dtype: int64
+	
+		1. count the normalise/percentage data :- > df['Survived'].value_counts(normalize=True) * 100
+								o/p-> 
+										0    61.616162
+										1    38.383838
+										Name: Survived, dtype: float64
+		2. count the filter data ex:-> df[ df["Age"] > 65 ]["Survived"].value_counts(normalize=True) * 100
+								o/p:-> 
+										0    87.5
+										1    12.5
+										Name: Survived, dtype: float64
+8. Sort values :-> 
+		1.  sorting particular columns :- df['column_name'].sort_values()
+		                           ex:- df['Age'].sort_values()
+								   o/p:-> 
+										   803    0.42
+											755    0.67
+											644    0.75
+											469    0.75
+											78     0.83
+												   ... 
+											859     NaN
+											863     NaN
+											868     NaN
+											878     NaN
+											888     NaN
+											Name: Age, Length: 891, dtype: float64
+		2. sorting Dataframe on column :->  df.sort_values('column_name',  ascending=True/False)      
+									ex:->  df.sort_values('Age')
+									o/p:->
+									PassengerId	Survived	Pclass	Name	Sex	Age
+								803	804	1	3	Thomas, Master. Assad Alexander	male	0.42
+								755	756	1	2	Hamalainen, Master. Viljo	male	0.67
+								644	645	1	3	Baclini, Miss. Eugenie	female	0.75
+								469	470	1	3	Baclini, Miss. Helene Barbara	female	0.75
+								78	79	1	2	Caldwell, Master. Alden Gates	male	0.83
+								...	...	...	...	...	...	...
+								859	860	0	3	Razi, Mr. Raihed	male	NaN
+								863	864	0	3	Sage, Miss. Dorothy Edith "Dolly"	female	NaN
+								868	869	0	3	van Melkebeke, Mr. Philemon	male	NaN
+								878	879	0	3	Laleff, Mr. Kristo	male	NaN
+								888	889	0	3	Johnston, Miss. Catherine Helen "Carrie"	female	NaN
+								891 rows × 6 columns
+9. Group by columns:-> df.groupby(['Sex', 'Survived'])['PassengerId'].count()
+						o/p:->  
+								Sex     Survived
+						female  0            81
+								1           233
+						male    0           468
+								1           109
+								Name: PassengerId, dtype: int64
+10. Change data :- for changing data we require dict with key present in df and value: replaced by. 
+					ex:->  Changing the Survived column value 1 and 0 the Survived and died. 
+							boolean_d = {True: 'Survived', False: 'Died'}
+							titanic_df['Survived'] = titanic_df['Survived'].replace(boolean_d)
+							titanic_df.head()
+					o/p:->							
+							PassengerId	Survived	Pclass	Name	Sex	Age
+							0	1	Died	3	Braund, Mr. Owen Harris	male	22.0
+							1	2	Survived	1	Cumings, Mrs. John Bradley (Florence Briggs Th...	female	38.0
+							2	3	Survived	3	Heikkinen, Miss. Laina	female	26.0
+							3	4	Survived	1	Futrelle, Mrs. Jacques Heath (Lily May Peel)	female	35.0
+							4	5	Died	3	Allen, Mr. William Henry	male	35.0
+
+11. Indexing:-> index are not columns (in simple is numbering of rows)
+			By default, a DataFrame’s rows are indexed with sequential integers starting with 0. 
+			What if we want to index on a column that already exists, instead? 
+			For example, on the ‘PassengerId’ column?
+			There are a couple ways to set an index: convert an existing column to an index, or set the index when the DataFrame is built.
+			1. df.set_index('column_name').
+					ex:->
+						set_index_titanic_df = titanic_df.set_index('PassengerId')
+						set_index_titanic_df.head()
+					o/p:->
+							Survived	Pclass	Name	Sex	Age
+				PassengerId					
+				1			Died	3	Braund, Mr. Owen Harris	male	22.0
+				2			Survived	1	Cumings, Mrs. John Bradley (Florence Briggs Th...	female	38.0
+				3			Survived	3	Heikkinen, Miss. Laina	female	26.0
+				4			Survived	1	Futrelle, Mrs. Jacques Heath (Lily May Peel)	female	35.0
+				5			Died	3	Allen, Mr. William Henry	male	35.0
+			
+			2. at time of importing :-
+					indexed_titanic_df = pd.read_csv("titanic_names.csv",index_col='PassengerId')
+			3. at time of manual creation (from above): 
+				  ex:-> pd.DataFrame(lst,index =['a','b','c','d'],columns=['name','number'])
+				  o/p:-> 
+							name	number
+						a	Geek	25
+						b	is	30
+						c	for	26
+						d	Geeksforgeeks	22
+						
+			4. Convert index to a column:-> df.reset_index()
+					ex:-> 
+							un_indexed_df = indexed_titanic_df.reset_index()
+							un_indexed_df.head()
+					o/p:->
+							PassengerId	Survived	Pclass	Name	Sex	Age
+						0	1	Died	3	Braund, Mr. Owen Harris	male	22.0
+						1	2	Survived	1	Cumings, Mrs. John Bradley (Florence Briggs Th...	female	38.0
+						2	3	Survived	3	Heikkinen, Miss. Laina	female	26.0
+						3	4	Survived	1	Futrelle, Mrs. Jacques Heath (Lily May Peel)	female	35.0
+						4	5	Died	3	Allen, Mr. William Henry	male	35.0
+											
+12. converting data into list. 
+		1. get all column name of df. :->  df.columns
+										o/p:->   Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age'], dtype='object')	
+		2. get all columns name in list:->  df.columns.tolist()
+										o/p:-> ['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age']
+										
+										
+										
+										
+										
+										
+										
+										
+										
+# Assiging partial list values inta a dataframe column 
+import pandas as pd
+
+ 
+
+list1 = ["P","R","P","R","P","P","R"]
+list2 = ["", "", "", "", "", "", ""]
+list3 = ["Pay", "Pay", "Pay", "Pay"]
+list4 = ["Rem", "Rem", "Rem"]
+df = pd.DataFrame()
+df["Query"] = list1
+df["Qname"] = list2
+
+ 
+
+
+df.loc[df.Query == "P", "Qname"] = list3
+df.loc[df.Query == "R", "Qname"] = list4
