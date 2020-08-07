@@ -1,3 +1,231 @@
+use database name
+show create table demo;
+create database
+desc table;
+-- DDL ------------------------------------------------------------------ 
+
+create - create table table_name 
+drop - drop table table_name
+alter - alter table table add,modify,drop, rename,
+truncate - truncate table table_name
+alter - alter table table_name rename column  column_name to new_column_name;
+		alter table demo drop column name;
+		alter table demo modify Marks decimal(10,2);
+		alter table demo add column name varchar(100);
+rename - rename table demoname to demo;
+constraint  - constraint constraint_name constraint_keywork expression 
+			 constraint table_check_age_gt_18 check (age >=18)    --constraint_name is option by defalut table_name_chk_1 etc
+			 alter table demo add constraint demo_mark_gt_0 check (marks >0); 
+			 alter table demo drop constraint demo_mark_gt_0;
+unique -	alter table demo add constraint demo_unique_id unique (id);
+			alter table demo drop constraint demo_unique_id ;
+-- DML ---------------------------------------------------------------------
+
+select  - select * from tabl where group by having order by 
+insert -  insert into table_name  (column_names) values (values_of_the_column)
+update - update table_name set column_name = vauel condition
+delete - delete table table_name condition 
+
+--------------------------------------------------------------------------------
+ex:-> 
+		id	std_id	Name	Marks
+		1	3	Abhi		99
+		2	5	Geethasri	89
+		3	6	Rahim		49
+		4	9	Ram			69
+		5	1	Rahul		87
+		6	1	Rahul		96
+		7	1	Rahul		96
+		8	9	Ram			96
+		9	9	Ram			96
+
+		
+row_number :- it used to assign numbering to the data.
+			  1. it gives nubering to data wheather data are same or not.
+				ex:- select *, row_number()over(order by marks desc) as rn from demo;
+					# id	std_id	Name	Marks	rn
+						1	3	Abhi		99		1
+						6	1	Rahul		96		2
+						7	1	Rahul		96		3
+						8	9	Ram			96		4
+						9	9	Ram			96		5
+						2	5	Geethasri	89		6
+						5	1	Rahul		87		7
+						4	9	Ram			69		8
+						3	6	Rahim		49		9
+
+			  2. if partition by used then it making rank based on order by clouse value in the group if present otherwise on partition value.
+			  
+			  ex:-> select *, row_number()over(partition by std_id  order by marks desc) as rn from demo;
+					# id	std_id	Name	Marks	rn
+						6	1	Rahul			96	1
+						7	1	Rahul			96	2
+						5	1	Rahul			87	3
+						1	3	Abhi			99	1
+						2	5	Geethasri		89	1
+						3	6	Rahim			49	1
+						8	9	Ram				96	1
+						9	9	Ram				96	2
+						4	9	Ram				69	3
+
+dense_rank() :- it used to asssign rank to data. if two data have same value then it assign same rank. 
+				1. it uses continueous ranking.
+				ex:-> select *, dense_rank()over(order by marks desc) as rn from demo;
+					# id	std_id	Name	Marks	rn
+						1	3		Abhi		99	1
+						6	1		Rahul		96	2
+						7	1		Rahul		96	2
+						8	9		Ram			96	2
+						9	9		Ram			96	2
+						2	5		Geethasri	89	3
+						5	1		Rahul		87	4
+						4	9		Ram			69	5
+						3	6		Rahim		49	6
+
+				2. if partition by used then it making rank based on order by clouse value in the group if present otherwise on partition value.
+				
+				ex:- select *, dense_rank()over(partition by std_id order by marks desc) as rn from demo;
+				# id	std_id	Name	Marks	rn
+					6	1		Rahul		96	1
+					7	1		Rahul		96	1
+					5	1		Rahul		87	2
+					1	3		Abhi		99	1
+					2	5		Geethasri	89	1
+					3	6		Rahim		49	1
+					8	9		Ram			96	1
+					9	9		Ram			96	1
+					4	9		Ram			69	2
+
+rank() :-> it used to asssign rank to data. if two data have same value then it assign same rank.
+				1. it uses skip rank 
+				
+				ex:->select *, rank()over(order by marks desc) as rn from demo;   (note the ranking is skiped )
+				# id	std_id	Name	Marks	rn
+					1	3		Abhi		99	1
+					6	1		Rahul		96	2
+					7	1		Rahul		96	2
+					8	9		Ram			96	2
+					9	9		Ram			96	2
+					2	5		Geethasri	89	6
+					5	1		Rahul		87	7
+					4	9		Ram			69	8
+					3	6		Rahim		49	9
+
+				2. if partition by used then it making rank based on order by clouse value in the group if present otherwise on partition value.
+
+				ex:-> select *, rank()over(partition by std_id order by marks desc) as rn from demo;
+				# id	std_id	Name	Marks	rn
+					6	1		Rahul		96	1
+					7	1		Rahul		96	1
+					5	1		Rahul		87	3
+					1	3		Abhi		99	1
+					2	5		Geethasri	89	1
+					3	6		Rahim		49	1
+					8	9		Ram			96	1
+					9	9		Ram			96	1
+					4	9		Ram			69	3
+
+
+	
+
+-- -----------------------------------------------------------------------------
+-- regexp
+
+*	Zero or more instances of string preceding it
++	One or more instances of strings preceding it
+.	Any single character
+?	Match zero or one instances of the strings preceding it.
+^	caret(^) matches Beginning of string  exmple (regexp '^sa')
+$	End of string   							(regexp 'sa$')
+[abc]	Any character listed between the square brackets
+[^abc]	Any character not listed between the square brackets
+[A-Z]	match any upper case letter
+[a-z]	match any lower case letter
+[0-9]	match any digit from 0 through to 9.
+[[:<:]]	matches the beginning of words.
+[[:>:]]	matches the end of words.
+[:class:]	matches a character class i.e. [:alpha:] to match letters, [:space:] to match white space, [:punct:] is match punctuations and [:upper:] for upper class letters.
+p1|p2|p3	Alternation; matches any of the patterns p1, p2, or p3
+{n}	n instances of preceding element
+{m,n}	m through n instances of preceding element
+
+
+Query to find all the names starting with a vowel and ending with 'ok' −
+mysql> SELECT FirstName FROM intque.person_tbl WHERE FirstName REGEXP '^[aeiou].*ok$';
+
+ select * from demo where name in ('abhi','geethasri');
+ select * from demo where name regexp '^abh.|geeth.'
+ 
+ select substring_index('www mysql com',' ',1)as fn,
+	substring_index(substring_index('www mysql com',' ',2),' ',-1)as mn,
+    substring_index('www mysql com',' ',-1)as ln ;
+	
+	
+-----------finding the n higest-----------
+select * from student 
+where 
+marks =
+(select distinct marks from student order by marks desc limit 1,1);
+ 
+ 
+select id, std_id, Name, Marks from demo where marks = 
+(select distinct marks from demo order by marks desc limit 2,1) limit 1;
+
+
+
+-----------finding the duplicates-----------
+select * , count(*) d from demo group by std_id, name, marks having d >1;
+
+
+select id, std_id, Name, Marks from (select *, row_number() over(partition by std_id, Name, Marks)
+as d from demo) 
+as temp where temp.d =2;
+
+--  ---------find nth record from table --------------
+select id, std_id, Name, marks 
+from 
+(select *, row_number()over(order by id asc) as r_no
+ from demo) as temp_tbl
+ where temp_tbl.r_no = 2;
+ 
+ 
+select id, std_id, Name, marks 
+from 
+(select *, row_number()over(order by id desc) as r_no
+ from demo) as temp_tbl
+ where temp_tbl.r_no <= 4 order by id;
+ 
+ 
+ select * from demo limit 4;
+ 
+ -- -----------------top n higest sallary -----------
+ select id, std_id , name , marks
+ from 
+ (select *, 
+ row_number()over(partition by marks ) as rn
+ from demo) as tt 
+  where tt.rn = 1 order by marks desc limit 3;
+  
+  -- -----------even and odd record ----------------
+   select id,std_id,name,marks 
+ from 
+ (select *, row_number()over(order by id)as rn
+ from demo ) as tt
+ where tt.rn %2 !=0;
+ 
+ 
+ ----------------------------------------minus and intersect-----
+ select * from demo d
+where  exists (
+ select * from student s where s.marks = d.marks);  -- intersect-----
+ 
+  select * from demo d
+where not exists (
+ select * from student s where s.marks = d.marks);   -- minus---
+ 	
+
+
+
 
 Create Database temp;
 
