@@ -1,6 +1,6 @@
-#----------------------seting up user name and email id-----------------
---global :- it make changes in all repogitory if we spacify the keyword
-			if we not spacify it will change for current or local repogitory
+#----------------------setting up user name and email id-----------------
+--global :- it make changes in all repository if we specify the keyword
+			if we not specify it will change for current or local repository
 			ls
 1. set/change user name.
 	## for global user
@@ -22,28 +22,27 @@
 	
 #---------------------initalising the new project/ repogitory------------
 
-# first we need to create folder or file where we want to start our project/repo. 
-step 1. go to folder/ project
-step 2.  run the command 
+# First we need to create folder or file where we want to start our project/repo. 
+Step 1. Go to folder/ project
+Step 2.  Run the command 
 		$ git init  :- it will create some .git file (hidden) which is used to manage.
 		
 #---------------------working with staging --------------------------------
 
-## when do change with any file then we want to this file should be present in our central 
-repogitory/server. for doing so we have following step.
+## When do change with any file then we want to this file should be present in our central 
+Repository/server. For doing so we have following step.
 
 step1. add file for staging
-	$ git add file_name  # this of spacify file/folder
-	$ git add . 		 # this is for all file /folder 
+	$ git add file_name  # this of specify file/folder
+	$ git add . 		 # This is for all file /folder 
 step 2. check the status of file in staging
 	$ git status  o/p:-> will display all file that has added for staging
 step 3. commit the changes. 
 	$ git commit 
-	$ git commit -m "comments of rember"
-step 4. push the change to central repogitory
-	$ git push.  # it will push the change of current repogitory to server. to know repo details do :- ls -la; cd .git; cat config :-> it will show url 
+	$ git commit -m "comments what changes has done."
+step 4. push the change to central repository
+	$ git push.  # it will push the change of current repository to server. To know repo details do :- ls -la; cd .git; cat config :-> it will show url 
 	## for pushing file in any branch
-	
 	$ git push origin branch_name
 	
 step 5. if want to pull the changes. 
@@ -53,12 +52,12 @@ step 5. if want to pull the changes.
 	
 #--------------------------------modification-----------------------------------
 
-# to see the log/ or commint information
+# To see the log/ or commit information
 	$ git log
 	
 
 #-----------------------branches -----------------------------
-** Branch :-  This the feature of the git to work parallily on original and experimaltal code. we want to work on experimantal code and once we statisfy then we want to mearge with original code. git provide this functionaliy using Branch command.
+** Branch :-  This the feature of the git to work parallel on original and experimental code. we want to work on experimental code and once we satisfy then we want to merge with original code. Git provide this functionality using Branch command.
 
 						master
 O-----------O---------O
@@ -75,28 +74,27 @@ O-----------O---------O
 2. Create Branch
 	$ git branch branch_name
 	
-3. acivate any branch
+3. Activate any branch
 	$ git checkout branch_name
 	o/p:-> switched to branch branch_name
 	
-	NOTE:-> now master branch is changed to branch_name. when we run list command * will shows at front of branch_name that we make active.
+	NOTE:-> now master branch is changed to branch_name. When we run list command * will shows at front of branch_name that we make active.
 ## we can create and activate brach in one command 
 	$ git checkout -b branch_name 
 	
-** Merge :-After branch creation if made some change and commit them. then it will remail only with newly created brach and once we switched ot master brach all change will disappear. suppose if we finalise our change and want to merge into main/master branch.
+** Merge :-After branch creation if made some change and commit them. Then it will remain only with newly created branch and once we switched to master branch all change will disappear. Suppose if we finalise our change and want to merge into main/master branch.
 
-step 1. Activate branch in which you want to merge. (i wnat to merge changes into master so i will checkout to master) 
+step 1. Activate branch in which you want to merge. (I want to merge changes into master so i will checkout to master) 
 	$ git checkout master
-step 2. merge the experimaltal branch 
+step 2. merge the experimental branch 
 	$ git merge branch_name
 
-#**# push the brach code in git hub
+## push the branch code in git hub
 	$ git push --set-upstream origin branch_name
 
-** Delete :- suppose we want to delete.
+## Delete :- suppose we want to delete.
 	$ git branch -d branch_name
 	o/p:-> deleted branch dummy (some)
-s
 
 
 
