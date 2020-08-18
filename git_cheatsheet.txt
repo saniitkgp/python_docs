@@ -1,0 +1,103 @@
+#----------------------seting up user name and email id-----------------
+--global :- it make changes in all repogitory if we spacify the keyword
+			if we not spacify it will change for current or local repogitory
+			ls
+1. set/change user name.
+	## for global user
+		$ git config --global user.name "user_name"
+	## for local user
+		git config  user.name "user_name"
+2. set/change user email.
+	## for global user
+		$ git config --global user.email "user_email@gmail.com"
+	## for local user
+		$ git config user.email "user_email@gmail.com"
+3. see who is the user name or email
+	## for global user
+		$ git config --global user.name  o/p:-> user_name
+		$ git config --global user.emai   o/p:-> user_email@gmail.com
+	## for local user
+		$ git config user.name  o/p:-> user_name
+		$ git config user.emai   o/p:-> user_email@gmail.com
+	
+#---------------------initalising the new project/ repogitory------------
+
+# first we need to create folder or file where we want to start our project/repo. 
+step 1. go to folder/ project
+step 2.  run the command 
+		$ git init  :- it will create some .git file (hidden) which is used to manage.
+		
+#---------------------working with staging --------------------------------
+
+## when do change with any file then we want to this file should be present in our central 
+repogitory/server. for doing so we have following step.
+
+step1. add file for staging
+	$ git add file_name  # this of spacify file/folder
+	$ git add . 		 # this is for all file /folder 
+step 2. check the status of file in staging
+	$ git status  o/p:-> will display all file that has added for staging
+step 3. commit the changes. 
+	$ git commit 
+	$ git commit -m "comments of rember"
+step 4. push the change to central repogitory
+	$ git push.  # it will push the change of current repogitory to server. to know repo details do :- ls -la; cd .git; cat config :-> it will show url 
+	## for pushing file in any branch
+	
+	$ git push origin branch_name
+	
+step 5. if want to pull the changes. 
+	$ git pull
+	
+	
+	
+#--------------------------------modification-----------------------------------
+
+# to see the log/ or commint information
+	$ git log
+	
+
+#-----------------------branches -----------------------------
+** Branch :-  This the feature of the git to work parallily on original and experimaltal code. we want to work on experimantal code and once we statisfy then we want to mearge with original code. git provide this functionaliy using Branch command.
+
+						master
+O-----------O---------O
+            |               branches
+			|-------------O------------O
+			
+1. List all present branches. 
+  $ git branch  <- enter
+  o/p:-> list of branch 
+			* main_branch_name  (which currently active is shown by *)
+			second_branch_name   (if present)
+			third_branch_name 
+
+2. Create Branch
+	$ git branch branch_name
+	
+3. acivate any branch
+	$ git checkout branch_name
+	o/p:-> switched to branch branch_name
+	
+	NOTE:-> now master branch is changed to branch_name. when we run list command * will shows at front of branch_name that we make active.
+## we can create and activate brach in one command 
+	$ git checkout -b branch_name 
+	
+** Merge :-After branch creation if made some change and commit them. then it will remail only with newly created brach and once we switched ot master brach all change will disappear. suppose if we finalise our change and want to merge into main/master branch.
+
+step 1. Activate branch in which you want to merge. (i wnat to merge changes into master so i will checkout to master) 
+	$ git checkout master
+step 2. merge the experimaltal branch 
+	$ git merge branch_name
+
+#**# push the brach code in git hub
+	$ git push --set-upstream origin branch_name
+
+** Delete :- suppose we want to delete.
+	$ git branch -d branch_name
+	o/p:-> deleted branch dummy (some)
+s
+
+
+
+
