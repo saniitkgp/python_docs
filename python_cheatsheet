@@ -499,6 +499,8 @@ df.info()     :-  it will give information about datatype of columns
 memory usage: 41.9+ KB
  #Select specific columns
 
+ ###### filter  pandas dataframe
+ 
 There are three methods of selecting columns from a DataFrame, and they all return the same results:
 1. dot notation -> df.column_name
 2. square braces with the name of the column as a string.:->  df[‘column_name’]
@@ -656,9 +658,22 @@ ex :-  df.loc[1] :->   cannot do label indexing on <class 'pandas.core.indexes.b
 										
 										
 										
-										
-										
-										
+13. display all row/data of data frame 
+			print(df.to_string())	
+			
+14. select rows/column which is starts with some character :- 
+					df.loc[df['columns_name'].str.startswith("start_with_char_or_string")]
+					
+
+					
+15. renameing the columns of the datafrae
+			df.columns = ['a', 'b']
+16. select all rows where column does not have null value 
+				df.loc[df.column.notnull()]
+** select all rows where column  have null value 
+		df.loc[df.column.isnull()] 
+writing df to csv 
+				df.to_csv(path)
 # Assiging partial list values inta a dataframe column 
 import pandas as pd
 

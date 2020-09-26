@@ -10,6 +10,11 @@
 	conda env list
 	conda lnfo -e
 	
-	
-	
+## create enviroment from requirment file
+conda create -n my_env_name pip # pip for installing 
+pip install -r path_to_requirment_file
+
+
+## delete enviroment
+conda env remove -n env_name
 https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html

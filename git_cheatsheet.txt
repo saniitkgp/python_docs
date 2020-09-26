@@ -16,7 +16,7 @@
 	## for global user
 		$ git config --global user.name  o/p:-> user_name
 		$ git config --global user.emai   o/p:-> user_email@gmail.com
-	## for local user
+	## for local userrea
 		$ git config user.name  o/p:-> user_name
 		$ git config user.emai   o/p:-> user_email@gmail.com
 	
@@ -47,8 +47,10 @@ step 4. push the change to central repository
 	
 step 5. if want to pull the changes. 
 	$ git pull
-	
-	
+
+#-----------------------------------------delete of file from staging area-----------------------------------
+
+# git rm --chached file_name 
 	
 #--------------------------------modification-----------------------------------
 
@@ -95,7 +97,31 @@ step 2. merge the experimental branch
 ## Delete :- suppose we want to delete.
 	$ git branch -d branch_name
 	o/p:-> deleted branch dummy (some)
+	
+## rename the branch name 	
+	git branch -m <oldname> <newname>  #if you want to rename a branch while pointed to any branch, do:
+									
+	git branch -m <newname> #If you want to rename the current branch, you can do:
 
 
+#-------------------git ignore file -----------------------
+
+touch .gitignore  # create git ignore file using bash
+folder :- .gitignore. # window gui system 
+
+** folder structure start from git folder.
+
+#  ignore file start with T or t example [temp/ Temp]
+/[tT]emp/ 
+
+# ignore complete folder and it file
+	ex :-  /path_folder/
+# ignore all file in the folder except one/two file 
+	ex:- /path_folder/*  # it say ignore all file in the folder 
+		!/path_folder/added_file     # it say not ignore the added file
+
+# ! mark is used to not ignore file or folder 
+	ex:- 
+	  !/temp/  # not ignore temp folder 
 
 
