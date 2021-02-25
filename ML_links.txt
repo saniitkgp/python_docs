@@ -1,0 +1,65 @@
+#understand LSTM with Code
+
+https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21
+
+#understand bagging and boosting
+
+https://www.geeksforgeeks.org/comparison-b-w-bagging-and-boosting-data-mining/
+
+#Gradient decent boosting
+
+https://www.analyticsvidhya.com/blog/2015/11/quick-introduction-boosting-algorithms-machine-learning/
+
+https://www.analyticsvidhya.com/blog/2015/09/complete-guide-boosting-methods/
+
+https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/
+
+
+# Random forest
+https://towardsai.net/p/machine-learning/why-choose-random-forest-and-not-decision-trees
+https://www.analyticsvidhya.com/blog/2016/04/tree-based-algorithms-complete-tutorial-scratch-in-python/
+hyper-tuning
+
+https://www.analyticsvidhya.com/blog/2020/03/beginners-guide-random-forest-hyperparameter-tuning/?utm_source=blog&utm_medium=decision-tree-vs-random-forest-algorithm
+
+#object detection 
+https://www.analyticsvidhya.com/blog/2018/10/a-step-by-step-introduction-to-the-basic-object-detection-algorithms-part-1/
+https://towardsdatascience.com/yolo-you-only-look-once-real-time-object-detection-explained-492dc9230006
+
+https://machinelearningmastery.com/object-recognition-with-deep-learning/
+
+
+# use pre-trained model 
+https://learnopencv.com/keras-tutorial-fine-tuning-using-pre-trained-models/
+
+
+#LDA
+https://towardsdatascience.com/latent-dirichlet-allocation-lda-9d1cd064ffa2
+https://www.mygreatlearning.com/blog/understanding-latent-dirichlet-allocation/
+https://medium.com/@yanlinc/how-to-build-a-lda-topic-model-using-from-text-601cdcbfd3a6
+
+https://github.com/hammadshaikhha/Data-Science-and-Machine-Learning-from-Scratch/blob/master/Latent%20Dirichlet%20Allocation/Latent%20Dirichlet%20Allocation.ipynb
+https://www.youtube.com/watch?v=Cpt97BpI-t4
+
+
+# applying keras on cnn
+https://yashk2810.github.io/Applying-Convolutional-Neural-Network-on-the-MNIST-dataset/
+
+
+#CNN
+https://www.analyticsvidhya.com/blog/2018/12/guide-convolutional-neural-network-cnn/
+
+
+# PCA/SVD
+https://www.analyticsvidhya.com/blog/2020/12/an-end-to-end-comprehensive-guide-for-pca/
+
+https://www.analyticsvidhya.com/blog/2019/08/5-applications-singular-value-decomposition-svd-data-science/
+
+https://jonathan-hui.medium.com/machine-learning-singular-value-decomposition-svd-principal-component-analysis-pca-1d45e885e491
+
+
+#attention 
+
+https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a
+https://blog.floydhub.com/attention-mechanism/#luong-att
+
