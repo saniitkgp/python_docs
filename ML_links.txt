@@ -82,6 +82,49 @@ https://towardsdatascience.com/simple-svd-algorithms-13291ad2eef2
 
 
 
+https://www.analyticsvidhya.com/blog/2020/12/an-end-to-end-comprehensive-guide-for-pca/
+
+https://www.analyticsvidhya.com/blog/2019/08/5-applications-singular-value-decomposition-svd-data-science/
+
+https://jonathan-hui.medium.com/machine-learning-singular-value-decomposition-svd-principal-component-analysis-pca-1d45e885e491
+
+https://towardsdatascience.com/understanding-singular-value-decomposition-and-its-application-in-data-science-388a54be95d
+https://towardsdatascience.com/simple-svd-algorithms-13291ad2eef2
+
+
+#attention 
+
+https://towardsdatascience.com/introduction-to-attention-mechanism-8d044442a29
+
+https://towardsdatascience.com/illustrated-self-attention-2d627e33b20a
+https://blog.floydhub.com/attention-mechanism/#luong-att
+
+
+
+
+# arima 
+https://www.analyticsvidhya.com/blog/2021/10/a-comprehensive-guide-to-time-series-analysis/
+
+
+# Precision, Recall, F1 Score
+https://medium.com/analytics-vidhya/confusion-matrix-accuracy-precision-recall-f1-score-ade299cf63cd
+
+
+
+https://medium.com/@zxr.nju/what-is-the-kernel-trick-why-is-it-important-98a98db0961d
+https://www.analyticsvidhya.com/blog/2021/10/support-vector-machinessvm-a-complete-guide-for-beginners/
+https://www.analyticsvidhya.com/blog/2021/06/support-vector-machine-better-understanding/
+
+https://towardsdatascience.com/the-kernel-trick-c98cdbcaeb3f#:~:text=The%20%E2%80%9Ctrick%E2%80%9D%20is%20that%20kernel,the%20data%20by%20these%20transformed
+https://towardsdatascience.com/deep-learning-on-graphs-convolution-is-all-you-need-3c1cf8f1e715
+https://towardsdatascience.com/graph-convolutional-networks-on-node-classification-2b6bbec1d042
+
+
+#logistic regression classification for multiclass
+https://towardsdatascience.com/multiclass-classification-algorithm-from-scratch-with-a-project-in-python-step-by-step-guide-485a83c79992
+
+
+
 
 
 
